@@ -28,7 +28,9 @@ class CountVowelConsonants{
                consVow[1] +=1; 
             }
             else{
-               consVow[0] +=1; 
+                if(inputString.charAt(i) != ' '){
+               consVow[0] +=1;
+                }
             }
         }
     return consVow;    
