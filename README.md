@@ -1,8 +1,8 @@
 # java-reusable-code
 
-A Simple repository which started from the thought *"Man, Before felling like a log. 
-I should code for a little bit"*
-> **Long Story short**: I filled this repo with everyDay coding chores.
+A Simple repository which started from the thought 
+
+*"Man, Before felling like a log. I should code for a little bit"*
 
 ## File list
 
