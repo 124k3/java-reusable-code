@@ -18,31 +18,51 @@ class CountVowelConsonants{
     }
    
 
-    int[] countConsVowel(String inputString){
-        int[] consVow = new int[2];
-        consVow[0] = 0;
-        consVow[1] = 0;
+    int[] countOccurances(String inputString){
+        int[] occurances = new int[4];
+        // 0 = symbols 
+        // 1 = numbers 
+        // 2 = vowels 
+        // 3 = consonants 
+
+        for (int i = 0; i < occurances.length; i++){
+            occurances[i] = 0;
+
+        // fill the array with zero's
+        }
 
         for(int i=0; i< inputString.length(); i++){
-            if(inputString.charAt(i) == 'a' | inputString.charAt(i) =='e' | inputString.charAt(i) == 'i' | inputString.charAt(i) == 'o' | inputString.charAt(i) =='u'){
-               consVow[1] +=1; 
-            }
-            else{
-                if(inputString.charAt(i) != ' '){
-               consVow[0] +=1;
-                }
-            }
+           int stringChar = inputString.charAt(i); 
+
+           if ((stringChar >= 32) && (stringChar <= 47) || (stringChar >=59) && (stringChar<= 64) || (stringChar >= 91) && (stringChar<= 96) || (stringChar >= 123) && (stringChar <=127)){
+               occurances[0] +=1; // the symbols
+           }else if(stringChar >= 48 && stringChar <= 57) {
+               occurances[1] +=1; // the numbers
+           }else if(stringChar >= 97 && stringChar <= 122){
+
+               if(stringChar == (int)'a' || stringChar == (int)'e' || stringChar == (int)'i' || stringChar == (int)'o' || stringChar == (int)'u'){
+                   occurances[2] += 1; // vowels
+               }else {
+                   occurances[3] +=1; // consonants
+               }
+           }
         }
-    return consVow;    
+    return occurances;    
     }
     
+    void showResult(int[] occurances){
 
+        int symbols = occurances[0];
+        int numbers = occurances[1];
+        int vowel = occurances[2]; 
+        int consonant = occurances[3];
 
-    void showResult(int[] consonantVowels){
-        int consonant = consonantVowels[0];
-        int vowel = consonantVowels[1];
         System.out.println("- The number of Consonant's : " +consonant);
         System.out.println("- The number of Vowel's : " +vowel);
+
+        System.out.println("- The number of NUmber's : " + numbers);
+        System.out.println("- The number of Symbol's (spaces included) : " + symbols);
+
 
     } 
 
@@ -53,7 +73,7 @@ class CountVowelConsonants{
     CountVowelConsonants cvc = new CountVowelConsonants();
     Scanner scanner = new Scanner(System.in);
 
-    cvc.showResult(cvc.countConsVowel(cvc.getInput(scanner)));
+    cvc.showResult(cvc.countOccurances(cvc.getInput(scanner)));
 
     }
 }
